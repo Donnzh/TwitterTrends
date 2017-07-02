@@ -20,9 +20,19 @@
   },
   "rules": {
     "key-spacing"          : "off",
-    "jsx-quotes"           : [2, "prefer-single"],
     "max-len"              : [2, 120, 2],
     "object-curly-spacing" : [2, "always"],
-    "comma-dangle"         : "off"
+    "comma-dangle"         : "off",
+    "import/default": 0,
+    "import/named": 0,
+    "import/namespace": 0,
+    "import/no-named-as-default": 0,
+    "semi" : [2, "always"],
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+    "space-infix-ops": 0,
+    "generator-star-spacing": 1,
+    "jsx-quotes": [2, "prefer-double"],
+    "react/self-closing-comp": 0,
+    "react/no-unused-prop-types": 0
   }
 }
