@@ -1,0 +1,13 @@
+@import './mixins';
+
+.panelRight {
+  background-color: #dddddd;
+  color: #777;
+  text-align: center;
+  height:  calc(100vh - 70px);
+  width: 100%;
+  div {
+    @include vhcenter;
+    top: 40%;
+  }
+}
