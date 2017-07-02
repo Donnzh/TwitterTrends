@@ -5,9 +5,24 @@ const logger = require('../build/lib/logger')
 const webpackConfig = require('../build/webpack.config')
 const project = require('../project.config')
 const compress = require('compression')
+const tRequest = require('./api-request');
 
 const app = express()
 app.use(compress())
+let trendsData = [];
+
+function trendsDataCycle() {
+  trendsData.length = 0;
+  trendsData = tRequest.getTrendsData();
+  setTimeout(trendsDataCycle, 15 * 60 * 1000);  // updating the trends every 15 mins
+}
+// start the cycle
+trendsDataCycle();
+
+app.get('/api/data', function (req, res, next) {
+  res.set('content-type', 'application/json');
+  res.json(trendsData);
+});
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
