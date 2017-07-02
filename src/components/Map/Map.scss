@@ -1,0 +1,70 @@
+.mapContainer {
+  height:  calc(100vh - 70px);
+  width: 100%;
+}
+
+.leaflet-marker-icon {
+  border-radius: 5px;
+  color: white;
+  white-space: nowrap;
+}
+
+.trend-rate1-far {
+  font-size: 10px;
+  background-color: rgba(233, 41, 22, 0.8);
+  opacity: 0.8;
+  padding-right: 10px;
+}
+
+.trend-rate1-near {
+  font-size: 17px;
+  background-color: rgba(233, 41, 22, 0.8);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+
+.trend-rate1-middle {
+  font-size: 13px;
+  background-color: rgba(233, 41, 22, 0.8);
+  opacity: 0.9;
+}
+
+
+
+.trend-rate2-far {
+  font-size: 12px;
+  background-color:rgb(44, 189, 14);
+  opacity: 0.5;
+  font-size: 8px;
+}
+
+.trend-rate2-near {
+  background-color:rgb(44, 189, 14);
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.trend-rate2-middle {
+  background-color:rgb(44, 189, 14);
+  opacity: 0.8;
+  font-size: 9px;
+}
+
+.trend-rate3-far {
+  opacity: 0.5;
+  background-color: rgba(0, 41, 60, 0.9);
+  font-size: 6px;
+}
+
+.trend-rate3-near {
+  opacity: 0.8;
+  background-color: rgba(0, 41, 60, 0.9);
+  font-size: 13px;
+}
+
+.trend-rate3-middle {
+  opacity: 0.8;
+  background-color: rgba(0, 41, 60, 0.9);
+  font-size: 8px;
+}
