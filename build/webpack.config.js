@@ -17,6 +17,7 @@ const config = {
       inProjectSrc('normalize'),
     ],
     main: [
+      'bootstrap-loader',
       inProjectSrc(project.main),
     ],
   },
@@ -145,6 +146,12 @@ config.module.rules.push({
     limit : 8192,
   },
 })
+
+// Jquery for boostrap
+config.module.rules.push({
+  test    : /bootstrap-sass\/assets\/javascripts\//,
+  loader  : 'imports-loader?jQuery=jquery'
+});
 
 // Fonts
 // ------------------------------------
