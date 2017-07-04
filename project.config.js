@@ -1,4 +1,4 @@
-const NODE_ENV = process.env.NODE_ENV || 'development'
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   /** The environment to use when building the project */
@@ -18,7 +18,11 @@ module.exports = {
   /** A hash map of keys that the compiler should treat as external to the project */
   externals: {},
   /** A hash map of variables and their values to expose globally */
-  globals: {},
+  globals: {
+    API_URL : NODE_ENV === 'production'
+      ? JSON.stringify('https://twittertrendsbackend.herokuapp.com/api')
+      : JSON.stringify('http://localhost:3000/api')
+  },
   /** Whether to enable verbose logging */
   verbose: false,
   /** The list of modules to bundle separately from the core application code */
@@ -30,4 +34,4 @@ module.exports = {
     'redux-thunk',
     'react-router',
   ],
-}
+};

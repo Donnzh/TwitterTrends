@@ -31,7 +31,9 @@ export function requestTrendsData() {
 
 function progressFetchTrendsData() {
   return new Promise((resolve, reject) => {
-    const apiUrl = 'http://localhost:3000/api/data';
+    const apiUrl = `${API_URL}/twittertrends`;
+    console.log('apiUrl', apiUrl)
+    // https://twittertrendsbackend.herokuapp.com/api/twittertrends
     request.get(apiUrl).end((err, res) => {
       if (res) {
         resolve(res);
