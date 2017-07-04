@@ -1,5 +1,5 @@
 # Twitter Trends 
-
+##### Demo: https://twittertrends.github.io/
 a react redux project 
 
 ![](https://github.com/Donnzh/TwitterTrends/blob/master/src/common/Images/readmeImage3.png)
@@ -11,6 +11,7 @@ a react redux project
 * Auto update most porpular trends every 15 mins.
 * Highly scalable markers.
 * Using `react redux start kit` boilerplate.
+* backend server avalible at repo: TwitterTrends-backend
 
 Todos:
 
