@@ -19,7 +19,7 @@ function trendsDataCycle() {
 // start the cycle
 trendsDataCycle();
 
-app.get('/api/data', function (req, res, next) {
+app.get('/api/twittertrends', function (req, res, next) {
   res.set('content-type', 'application/json');
   res.json(trendsData);
 });
