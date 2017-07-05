@@ -30,15 +30,15 @@ export default class LeafletMap extends Component {
     this.setState({
       zoom: zoom
     });
-    if (zoom < 5) {
-      this.setState({
-        trendsNumber: 6
-      });
-    } else {
-      this.setState({
-        trendsNumber: 18
-      });
-    }
+    const trendsInZoomLevel = {
+      5 : 18,
+      6 : 18,
+      7 : 32,
+      8 : 40
+    };
+    this.setState({
+      trendsNumber: trendsInZoomLevel[zoom] ? trendsInZoomLevel[zoom] : 6
+    });
   }
   markerPositionOptions = (zoom) => {
     let anchorPosiion = {
@@ -129,7 +129,21 @@ export default class LeafletMap extends Component {
     }
   }
 
+  shouldStartNewLine = (index, zoomLevel) => {
+    const correctZoom = zoomLevel === 8 || zoomLevel === 7;
+    if (index % 5 === 0 && correctZoom) {
+      return true;
+    }
+    if (index % 3 === 0 && !correctZoom) {
+      return true;
+    }
+  }
+
   renderTrendsMarkers = (data) => {
+    const {
+      zoom,
+      trendsNumber
+    }= this.state;
     let markers = [];
     const citiesLatLng = {
       'Sydney' : [-33.8688, 151.2093],
@@ -144,18 +158,19 @@ export default class LeafletMap extends Component {
       let markerPosition;
       if (data) {
         data.forEach((trendsArray, j) => {
-          let adjustPosition = this.markerPositionOptions(this.state.zoom);
+          let adjustPosition = this.markerPositionOptions(zoom);
           var anchorX= adjustPosition.anchorX;
           var anchorY= adjustPosition.anchorY;
           if (trendsArray.locations[0].name) {
             markerPosition = citiesLatLng[trendsArray.locations[0].name];
           }
           trendsArray.trends.forEach((t, i) => {
-            if (i > this.state.trendsNumber) {
+            if (i > trendsNumber) {
               return false;
             }
             anchorX += (t.name.length * 6) - (adjustPosition.addXnum);
-            if (i % 3 === 0) {
+
+            if (this.shouldStartNewLine(i, zoom)) {
               anchorY += adjustPosition.addYnum;
               anchorX = adjustPosition.addXnum;
             }
@@ -170,7 +185,7 @@ export default class LeafletMap extends Component {
             markers.push(<Marker
               draggable
               key={j+`${i}`}
-              onClick={() => { console.log('icon been clicked '); }}
+              onClick={() => { console.log('icon been clicked '); }} // TODO: handle the click function
               position={markerPosition}
               icon={icon} >
             </Marker>);
