@@ -2,8 +2,6 @@
 ##### Demo: https://twittertrends.github.io/
 a react redux project 
 
-![](https://github.com/Donnzh/TwitterTrends/blob/master/src/common/Images/readmeImage3.png)
-
 ![](https://github.com/Donnzh/TwitterTrends/blob/master/src/common/Images/readmeImage2.png)
 
 
